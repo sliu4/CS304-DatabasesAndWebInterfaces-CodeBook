@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/main.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Megrim|Raleway:300" rel="stylesheet">
+    <title>Home - CODEBOOK</title>
+     </head>
+  <body background="{{url_for('static',filename='img/background.jpg')}}">
+    <div id="navigation">
+      <ul class="topnav">
+        <li><a href="/">Home</a>
+	<li><a href="/register/">Signup</a>  
+	<li><a href="/login/">Login | Logout</a>
+        <li><a href="/search/">Search</a>
+        <li><a href="/bookmarks/">Bookmarks</a>
+	<li><a href="/add/">Add Function</a>
+	<li><a href="/pending/">Pending Functions</a>
+      </ul>
+    </div>
+    <div id="content">
+      
+  <h1>{{title}}</h1>
+
+{% block body %}
+<!--replace this part with the other html files -->
+
+<p>Codebook is a web application for quickly searching builtin functions of different programming languages.
+<br>Each function in the database has been added by users and links to official documentation. 
+<br>Users can also bookmark functions that they want to keep and remember.
+</p>
+
+<p>Please click one of the menu links to use Codebook</p>
+
+{% endblock %}
+     </div>
+
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+
+<footer>
+  <p>Created by two goons: Chip + Bison a.k.a. Sheree Liu + Hye Sun Yun ;)</p>
+</footer>
+  </body>
+</html>

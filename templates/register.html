@@ -1,0 +1,22 @@
+{% extends "home.html"%}
+{% block body %}
+<div>
+  <form method=POST action="/register/">
+    <table>
+      <tr>
+        <td><label for="username">Username</label></td>
+        <td><input name="username" value=""></td>
+      </tr>
+      <tr>
+        <td><label for="pw1">Password</label></td>
+        <td><input type="password" name="pw1" value=""</td>
+      </tr>
+      <tr>
+        <td><label for="pw2">Confirm Password</label></td>
+        <td><input type="password" name="pw2" value=""></td>
+      </tr>   
+   </table>
+    <input type="submit" name="submit" value="signup">
+   </form>
+</div>
+{% endblock %}

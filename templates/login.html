@@ -1,0 +1,25 @@
+{% extends "home.html"%}
+{% block body %}
+{% if session['logged_in'] %}
+<p>Logout here</p>
+<form method=POST action="/login/">
+  <input type="submit" name="submit" value="logout">
+</form>
+{% else %}
+<div>
+  <form method=POST action="/login/">
+    <table>
+      <tr>
+        <td><label for="username">Username</label></td>
+        <td><input name="username" value=""></td>
+      </tr>
+      <tr>
+        <td><label for="password">Password</label></td>
+        <td><input type="password" name="password" value=""</td>
+      </tr>
+     </table>
+    <input type="submit" name="submit" value="login">
+   </form>
+</div>
+{% endif %}
+{% endblock %}

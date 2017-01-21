@@ -1,0 +1,32 @@
+{% extends "home.html"%}
+{% block body %}
+<p>Approve pending function</p>
+<div>
+  <form method=POST action="/approve/{{function_info['fid']}}">
+    <table>
+      <tr>
+	<td><label for="function-fid" accesskey="function-fid">FID</label></td>
+	<td><input name="function-fid" value="{{function_info['fid']}}"></td>
+      </tr>
+      <tr>
+        <td><label for="function-name" accesskey="function-name">Function Name</label></td>
+        <td><input name="function-name" value="{{function_info['name']}}"</td>
+      </tr>
+      <tr>
+        <td><label for="function-description" accesskey="function-description">Description</label></td>
+	<td><textarea name="function-description" value="{{function_info['description']}}">{{function_info['description']}}</textarea></td>
+      </tr>
+      <tr>
+        <td><label for="function-url" accesskey="function-url"><a href="{{function_info['url']}}">Documentation URL</a></label></td>
+	<td><input name="function-url" value="{{function_info['url']}}"></td>
+      </tr>
+      <tr>
+	<td><label for="function-date" accesskey="function-date">Date Added</label></td>
+	<td><input name="function-date" value="{{function_info['date_added']}}"></td>
+      </tr>
+   </table>
+    <input type="submit" name="submit" value="approve">
+    <input type="submit" name="submit" value="delete">
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "home.html"%}
+{% block body %}
+{% if isAdmin %}
+<div>
+  <form method=POST action="/pending/">
+    <label for "function-fid">List of pending functions:</label>
+    <select name="function-fid">
+      <option value="none">Choose One</option>
+      {% for function in functions %}
+      <option value="{{function.fid}}">{{function.fid}}</option>
+      {% endfor %}
+    </select>
+    <div id="pending">
+    <input type="submit" name="submit-btn" value="Choose">
+    </div>
+  </form>
+</div>
+{% endif %}
+{% endblock %}

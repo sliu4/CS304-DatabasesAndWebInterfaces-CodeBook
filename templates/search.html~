@@ -1,0 +1,34 @@
+{% extends "home.html"%}
+{% block body %}
+
+<p>Searching is possible by providing only a function name/keyword or by just selecting a language.
+<br>Providing both fields also works.</p>
+
+<div>
+  <form method=POST action="/search/">
+    <label for="search-function">Search by Function name: </label>
+    <input name="search-function" value="">
+    <label for="language-name">Search by language</label>
+    <select name="language-name">
+      <option value="none">Choose One</option>
+      {% for language in languages %}
+      <option value="{{language['abbreviation']}}">{{language['name']}}</option>
+      {% endfor %}
+    </select>
+    <button type="submit" name="submit" value="Search">Search</button>
+  </form>
+</div>
+
+<div>
+  <form method=POST action="/search/">
+    <ul class="search">
+      {% for result in results %}
+        <li><a href="{{result['url']}}">{{result['fid']}}</a></li>
+        <li>{{result['description']}}</li>
+        <button type="submit" name="submit" value="{{result['fid']}}">Bookmark</button>
+        <br></br>
+      {% endfor %}
+    </ul>
+ </form>
+</div>
+{% endblock %}

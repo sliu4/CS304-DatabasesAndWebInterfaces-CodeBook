@@ -1,0 +1,13 @@
+{% extends "home.html"%}
+{% block body %}
+<div>
+  <form method=POST action="/bookmarks/">
+    <ul class="bookmarks">
+      {% for result in results %}
+       <li value="{{result['fid']}}"><a href="{{result['url']}}" style="font-size: 20px">{{result['fid']}}</a></li>
+       <button type="submit" name="submit" value="{{result['fid']}}">Delete</button>
+       <br></br>
+      {% endfor %}
+  </form>     
+</div>
+{% endblock %}
