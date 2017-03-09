@@ -39,7 +39,7 @@ def register():
 @app.route('/login/', methods=['POST', 'GET'])
 def logIn():
     if 'username' in session:
-        if request.method == 'POST': # for logging out
+        if request.method == 'POST':
             session.pop('username', None)
             session['logged_in'] = False
             flash('You are now logged out.')
@@ -164,7 +164,7 @@ def approve(fid):
             return redirect(url_for('pending'))
 
         return render_template('approve.html', title='APPROVE FUNCTIONS', function_info=function_info, isAdmin=isAdmin)
-    flash('Only admins have access to this page.') # when user is not admin
+    flash('Only admins have access to this page.')
     return render_template('approve.html',title='APPROVE FUNCTIONS', isAdmin=False)
 
 if __name__ == '__main__':
